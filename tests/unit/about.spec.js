@@ -22,13 +22,12 @@ jest.mock("axios", () => ({
 describe("About.vue", () => {
   it("should get trigger getPosts method", () => {
     // Using spy to check if method is triggered
-    // eslint-disable-next-line no-unused-vars
-    const wrapper = shallowMount(About);
+    shallowMount(About);
     expect(spy).toHaveBeenCalled();
   });
 
   it("should set posts with getPosts method", async () => {
-    // Using jest.mock to moch api response for axios request
+    // Using jest.mock to mock api response for axios request
     const wrapper = shallowMount(About);
     await wrapper.vm.$nextTick();
     expect(wrapper.vm.posts.length).toBe(1);
